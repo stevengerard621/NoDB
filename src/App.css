@@ -1,22 +1,22 @@
 .App {
-  text-align: center;
+  margin: 0px;
 }
 
-.App-logo {
-  height: 40vmin;
+.header{
+  height: 60px;
+  width: 100vw;
+  background-color: transparent;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.head-task{
+  font-family: 'Montserrat', sans-serif;
+  font-weight: lighter;
+}
+
+.past-days{
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #09d3ac;
+.task{
+  margin-right: 5px;;
 }

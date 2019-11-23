@@ -1,26 +1,47 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {Component} from "react";
+import "./App.css";
+import Header from "./Components/Header";
+import axios from 'axios';
+import PastDays from './Components/PastDays'
+import Daily from './Components/Daily'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      entry: []
+    };
+  }
+
+  componentDidMount(){
+    axios.get('/api/journal').then(res => {
+      this.setState({
+        entry: res.data
+      })
+    })
+  }
+
+  newEntry(body){
+    axios.put('/api/journal').then(res => {
+      this.setState({
+        entry: res.data
+      })
+    })
+  }
+
+  render() {
+    let past = this.state.entry.map((el, index) => {
+      return <PastDays key={index} completed={el.completed} note={el.task}/>
+    })
+    return (
+      <div className="App">
+        <Header />
+        <Daily />
+        {past}
+      </div>
+    );
+  }
 }
 
 export default App;
