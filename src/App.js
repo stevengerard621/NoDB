@@ -2,9 +2,9 @@ import React, {Component} from "react";
 import "./App.css";
 import Header from "./Components/Header";
 import axios from 'axios';
-import PastDays from './Components/PastDays'
-import Daily from './Components/Daily'
-
+import Completed from './Components/Completed'
+import AddTask from './Components/AddTask'
+import Current from './Components/Current'
 class App extends Component {
   constructor() {
     super();
@@ -12,8 +12,9 @@ class App extends Component {
     this.state = {
       entry: []
     };
+    this.componentDidMount = this.componentDidMount.bind(this)
   }
-
+  ////////AXIOS GET RESPONSE THAT DISPLAYS THE ENTRY=[]////////////
   componentDidMount(){
     axios.get('/api/journal').then(res => {
       this.setState({
@@ -22,23 +23,18 @@ class App extends Component {
     })
   }
 
-  newEntry(body){
-    axios.put('/api/journal').then(res => {
-      this.setState({
-        entry: res.data
-      })
-    })
-  }
-
   render() {
-    let past = this.state.entry.map((el, index) => {
-      return <PastDays key={index} completed={el.completed} note={el.task}/>
-    })
+   let completedArr = this.state.entry.filter(element => element.completed)
+    let incompleteArr = this.state.entry.filter(element => !element.completed)
     return (
       <div className="App">
         <Header />
-        <Daily />
-        {past}
+        <h1>Add Task</h1>
+        <AddTask cleanSlate={this.componentDidMount}/>
+        <h1>current</h1>
+         {incompleteArr.map(element => <Current cleanSlate={this.componentDidMount} id={element.id} task={element.task} completed={element.completed} />)}
+         <h1>Completed</h1>
+        {completedArr.map(element => <Completed cleanSlate={this.componentDidMount} id={element.id} task={element.task}/>)}  
       </div>
     );
   }

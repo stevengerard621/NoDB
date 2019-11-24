@@ -1,18 +1,20 @@
 const entry = [    
     {
     id: 0,
-    task: 'do life',
+    task: 'research a thing called Javascript...',
     completed: true
 },
 {
     id: 1,
     task: 'begin juggling career',
     completed: false
+
 },
 {
     id: 2,
     task: 'code for 19 hours',
     completed: true
+
 }];
 
 let id = 3
@@ -25,16 +27,19 @@ module.exports = {
     postEntry: (req, res) => {
         console.log('POSTED DEAD OR ALIVE')
         let { task, completed } = req.body;
+        console.log(req.body)
+        console.log(completed)
         entry.push({ id, task, completed });
         id++;
+        console.log(completed)
         res.status(200).send(entry)
     },
     editEntry: (req, res) => {
         console.log('SAME SAME BUT DIFFERENT', req.params)
         let {id} = req.params 
+        let {completed} = req.body 
         let index = entry.findIndex(element => +id === element.id)
-        if(index === -1) res.status(404).send('could not find matching entry')
-        entry[index].completed = !entry[index].completed
+        entry[index].completed = completed
         console.log(entry)
         res.status(200).send(entry)
     },
@@ -47,5 +52,3 @@ module.exports = {
         res.status(200).send(entry)
     }
 }
-
-// hard code data for 7 days.

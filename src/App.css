@@ -1,11 +1,13 @@
 .App {
   margin: 0px;
+  height: 300vh;
+  background-color: tan;
 }
 
 .header{
   height: 60px;
   width: 100vw;
-  background-color: transparent;
+  background-color: rgb(6, 196, 196);
 }
 
 .head-task{
@@ -15,8 +17,17 @@
 
 .past-days{
   display: flex;
+  background-color: rgb(231, 231, 66);
 }
 
 .task{
   margin-right: 5px;;
+}
+#addTask {
+  background-color: rgb(221, 86, 221);
+  height: 50px;
+}
+#current {
+  background-color: purple;
+  color: white
 }
