@@ -1,18 +1,18 @@
 const entry = [    
     {
     id: 0,
-    task: 'research a thing called Javascript...',
+    task: 'ROB BANK',
     completed: true
 },
 {
     id: 1,
-    task: 'begin juggling career',
+    task: 'CODE FOR 19 HOURS',
     completed: false
 
 },
 {
     id: 2,
-    task: 'code for 19 hours',
+    task: 'RESEARCH A THING CALLED JAVASCRIPT',
     completed: true
 
 }];

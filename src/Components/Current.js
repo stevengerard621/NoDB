@@ -37,9 +37,8 @@ class Current extends Component{
     render(){
         return (
             <section id='current'>
-             <h2>
-                 <button onClick={() => this.saveComplete()}>Complete</button>{this.props.task}
-             </h2>
+                 <button className="button-hover" id="current-button" onClick={() => this.saveComplete()}>COMPLETE</button>
+                 <p id="current-font">{this.props.task}</p>
             </section>
         )
     }

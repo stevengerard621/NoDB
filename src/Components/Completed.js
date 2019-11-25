@@ -22,8 +22,9 @@ class Completed extends Component {
 
     render(){
         return(
-            <div className='past-days'>
-                <h2><button onClick={ () => this.deleteTask(this.props.id)}>X</button>{this.props.task}</h2>
+            <div className='completed'>
+                <button className="button-hover" id="completed-button" onClick={ () => this.deleteTask(this.props.id)}>REMOVE</button>
+                <p id="completed-font">{this.props.task}</p>
             </div>
         )
     }

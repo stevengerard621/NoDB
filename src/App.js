@@ -24,17 +24,19 @@ class App extends Component {
   }
 
   render() {
+    /////FILTER COMPLETE BOOLEAN/////////
    let completedArr = this.state.entry.filter(element => element.completed)
     let incompleteArr = this.state.entry.filter(element => !element.completed)
     return (
       <div className="App">
         <Header />
-        <h1>Add Task</h1>
         <AddTask cleanSlate={this.componentDidMount}/>
-        <h1>current</h1>
          {incompleteArr.map(element => <Current cleanSlate={this.componentDidMount} id={element.id} task={element.task} completed={element.completed} />)}
-         <h1>Completed</h1>
-        {completedArr.map(element => <Completed cleanSlate={this.componentDidMount} id={element.id} task={element.task}/>)}  
+        <div id="photo-div">
+          <p id="complete-div">COMPLETE TASKS</p>
+        </div>
+        {completedArr.map(element => <Completed cleanSlate={this.componentDidMount} id={element.id} task={element.task}/>)}
+        <div id="another-photo-div"></div>
       </div>
     );
   }

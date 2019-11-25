@@ -1,6 +1,4 @@
 import React, {Component} from 'react';
-// import PastDays from './PastDays'
-// import Axios from 'axios';
 import '../../src/App.css'
 import Axios from 'axios';
 
@@ -13,8 +11,8 @@ class AddTask extends Component {
         }
     };
 
-    inputHandler(val){
-        this.setState({task: val})
+    inputHandler(str){
+        this.setState({task: str})
     };
 
     resetForm(){
@@ -33,11 +31,11 @@ class AddTask extends Component {
 
     render(){
         return(
-            <div id="addTask" >
+            <div id="addTask">
                 <form id="myForm">
-                    <input placeholder='Dont be a Bum' type="text" onChange={(e) => this.inputHandler(e.target.value)}/>
+                <button className="button-hover" id="task-button" onClick={ () => this.addTask()}>Add Task</button>
+                    <input id="task-input" placeholder=' + NEW TASK' type="text" onChange={(e) => this.inputHandler(e.target.value)}/>
                 </form>
-                <button onClick={ () => this.addTask()}>Add Task</button>
             </div>
         )
     }

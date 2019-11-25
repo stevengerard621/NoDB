@@ -1,6 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-// const gradient = require('gradient-string');
+const gradient = require('gradient-string');
 const entryCtrl = require('./controllers/entryCtrl')
 const PORT = 6200;
 
@@ -18,5 +18,4 @@ app.put('/api/journal/:id', editEntry);
 app.delete('/api/journal/:id', deleteEntry)
 
 
-app.listen(PORT, () => console.log(`${PORT} FIRING ON ALL CYLINDERS`))
-// app.listen(PORT, () => console.log(gradient.rainbow `${PORT} firing on all cylinders`))
+app.listen(PORT, () => console.log(`${PORT}`, gradient.instagram `FIRING ON ALL CYLINDERS`))
